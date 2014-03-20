@@ -5,17 +5,32 @@
 *.war
 *.ear
 
-sahi/junittestrun.out
-sahi/classes/
-sahi/deploy/
-sahi/lib/
-sahi/temp/
-sahi/userdata/
-sahi/config/version.txt
-sahi/docs/java_client/
+sahi-core/junittestrun.out
+sahi-core/classes/
+sahi-core/deploy/
+sahi-core/lib/
+sahi-core/temp/
+sahi-core/userdata/
+!sahi-core/userdata/config
+!sahi-core/userdata/bin
+sahi-core/config/version.txt
+sahi-core/docs/java_client/
 temp
 
+# Eclipse
+.classpath
 .project
-!sahi/.project
+.settings/
 
-!sahi/extlib/*/*
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
