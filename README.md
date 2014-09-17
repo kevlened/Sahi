@@ -1,31 +1,42 @@
-Sahi
-====
+# Sahi
 
-I wanted to contribute to Sahi Open Source, but it's currently maintained in svn while most open source projects are shifting towards git. Sahi Pro is very well maintained, but Sahi OS isn't actively maintained or updated. This may be a better place to add features to Sahi OS, especially if those features are currently only found in Sahi Pro.
+## Requirements
 
-How to compile
---------------
+- Java 7
+- Maven
 
-For people starting fresh,
+sahi-core:
 
-1) ~~Checkout Sahi code from SVN from https://sahi.svn.sourceforge.net/svnroot/sahi/branches/sahi_rhino_controller2~~ Clone Sahi from this git repo
+- Unix like OS
 
-2) In Eclipse, do File -> Import -> Existing Projects into Workspace -> Next -> Select the above checked out directory as root directory. Project should now be imported.
+sahi-test-webapp:
 
-3) Right click build.xml -> Run As -> Ant Build. This will either work or fail.
+- Firefox
+- [certutil](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil#__Availability_)
 
-If it fails:
+## Setting up the workspace
 
-4) Right click build.xml -> Run As -> External Tools Configurations ... -> Environment tab. Add new environment variable PATH with value D:\your_java_path\bin . Make sure "Append environment to native environment" is checked. Apply and Run.
+### With IntelliJ
 
-It should now pass.
+- clone Sahi from this git repo
+- import the project [how?](http://www.jetbrains.com/idea/webhelp/importing-project-from-maven-model.html)
+- set the default run/debug configuration to use the sahi-core module as default working directory (or else your unittests will fail and the dashboard wont start) [how?](http://youtrack.jetbrains.com/issue/IDEA-52112)
+- run the Dashboard.main()
 
-An ant configuration is created only if you have done Run As Ant at least once. So do step 3 before step 4.
+## Packaging and running Sahi
 
-Pulled from [the Sahi forums](http://sahi.co.in/forums/discussion/comment/4093#Comment_4093) (Thanks Narayan)
+Run
+
+    cd sahi-core
+    mvn package verify
+    cd bin
+    sh dashboard.sh
+
+Then the required jars are built to run sahi with the scripts under sahi-core/bin.
 
 Licenses
 --------
+
 See sahi/docs/licenses
 
 Notes
